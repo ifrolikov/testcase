@@ -5,23 +5,24 @@ use frolikov\testcase\Foo;
 class FooTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @param float $params
+     * @param float $number
      * @param       $expectedNumber
      *
      * @dataProvider getDataProvider
      */
-    public function testFactorial(float $params)
+    public function testFactorial(float $number, int $expectedNumber)
     {
-        $expectedNumber = 24;
-        $number = new Foo();
-        $realNumber = $number->factorial($params);
+        $obFoo = new Foo();
+        $realNumber = $obFoo->factorial($number);
         $this->assertEquals($expectedNumber, $realNumber);
     }
 
     public function getDataProvider()
     {
         return [
-            [4],
+            [4, 24],
+            [9, 362880],
+            [6, 720]
         ];
     }
 }

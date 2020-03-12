@@ -12,18 +12,19 @@ class ServiceTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider getDataProvider
      */
-    public function testCalculate(int $params)
+    public function testCalculate(int $number, int $expectedNumber)
     {
-        $expectedNumber = 24;
-        $service = new Service(new Bar(), new Foo());
-        $realNumber = $service->calculate($params);
+        $obService = new Service(new Bar(), new Foo());
+        $realNumber = $obService->calculate($number);
         $this->assertEquals($expectedNumber, $realNumber);
     }
 
     public function getDataProvider()
     {
         return [
-            [16],
+            [16, 24],
+            [81, 362880],
+            [36, 720],
         ];
     }
 }

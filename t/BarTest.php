@@ -10,18 +10,19 @@ class BarTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider getDataProvider
      */
-    public function testSqrt(int $params)
+    public function testSqrt(int $number, int $expectedNumber)
     {
-        $expectedNumber = 4;
-        $number = new Bar();
-        $realNumber = $number->sqrt($params);
+        $obBar = new Bar();
+        $realNumber = $obBar->sqrt($number);
         $this->assertEquals($expectedNumber, $realNumber);
     }
 
     public function getDataProvider()
     {
         return [
-            [16],
+            [16, 4],
+            [81, 9],
+            [36, 6]
         ];
     }
 }
