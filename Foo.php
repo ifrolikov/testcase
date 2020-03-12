@@ -9,8 +9,9 @@ class Foo implements FooInterface
     {
         $result = 1;
         while ($number > 0) {
-            $result *= --$number;
+            $result *= $number--;
         }
+
         return $result;
     }
 }
